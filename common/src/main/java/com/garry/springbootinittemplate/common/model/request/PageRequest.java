@@ -1,6 +1,5 @@
 package com.garry.springbootinittemplate.common.model.request;
 
-import com.garry.springbootinittemplate.common.constant.CommonConstant;
 import lombok.Data;
 
 @Data
@@ -21,8 +20,4 @@ public class PageRequest {
      */
     private String sortField;
 
-    /**
-     * 排序顺序（默认升序）
-     */
-    private String sortOrder = CommonConstant.SORT_ORDER_ASC;
 }

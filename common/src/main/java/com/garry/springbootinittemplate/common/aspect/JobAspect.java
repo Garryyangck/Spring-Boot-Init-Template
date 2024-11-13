@@ -36,7 +36,7 @@ public class JobAspect {
 
         DateTime end = DateTime.now();
         long e = System.currentTimeMillis();
-        log.info("------------- {} 结束时间: {}，用时: {} ms -------------", name, end, e - s);
+        log.info("------------- {} 结束时间: {}，用时: {} ms -------------\n", name, end, e - s);
 
         return result;
     }

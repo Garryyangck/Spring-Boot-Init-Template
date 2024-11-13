@@ -13,6 +13,7 @@
     <!--子模块-->
     <modules>
         <module>common</module>
+        <module>batch</module>
     </modules>
 
     <!--配置信息-->
@@ -54,6 +55,12 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--common模块-->
+            <dependency>
+                <groupId>com.garry</groupId>
+                <artifactId>common</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <!--lombok-->
             <dependency>

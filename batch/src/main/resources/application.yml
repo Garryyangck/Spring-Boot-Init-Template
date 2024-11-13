@@ -1,0 +1,21 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /batch # 项目的前缀
+
+spring:
+  datasource: # Mybatis 数据库连接配置
+    driver-class-name: com.mysql.jdbc.Driver  # driver-class-name：5.7版本为 com.mysql.jdbc.Driver；8.0版本为 com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/test_batch?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
+
+logging:
+  level:
+    garry:
+      train:
+        batch:
+          mapper: trace # garry.train.business.mapper下的日志等级设置为 trace，可以打印出 sql
+
+test:
+  me: 没有使用 Nacos，来自本地的配置

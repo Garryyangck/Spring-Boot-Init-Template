@@ -1,0 +1,68 @@
+GET http://localhost:8083/batch/admin/job/query
+Accept: application/json
+
+###
+
+POST http://localhost:8083/batch/admin/job/add
+Content-Type: application/json
+
+{
+  "name": "com.garry.springbootinittemplate.batch.job.QuartzTestJob",
+  "group": "test",
+  "description": "quartz test job",
+  "cronExpression": "*/2 * * * * ?"
+}
+
+###
+
+POST http://localhost:8083/batch/admin/job/pause
+Content-Type: application/json
+
+{
+  "name": "com.garry.springbootinittemplate.batch.job.QuartzTestJob",
+  "group": "test"
+}
+
+###
+
+POST http://localhost:8083/batch/admin/job/resume
+Content-Type: application/json
+
+{
+  "name": "com.garry.springbootinittemplate.batch.job.QuartzTestJob",
+  "group": "test"
+}
+
+###
+
+POST http://localhost:8083/batch/admin/job/reschedule
+Content-Type: application/json
+
+{
+  "name": "com.garry.springbootinittemplate.batch.job.QuartzTestJob",
+  "group": "test",
+  "description": "test job",
+  "cronExpression": "*/5 * * * * ?"
+}
+
+###
+
+POST http://localhost:8083/batch/admin/job/delete
+Content-Type: application/json
+
+{
+  "name": "com.garry.springbootinittemplate.batch.job.QuartzTestJob",
+  "group": "test"
+}
+
+###
+
+POST http://localhost:8083/batch/admin/job/run
+Content-Type: application/json
+
+{
+  "name": "com.garry.springbootinittemplate.batch.job.QuartzTestJob",
+  "group": "test"
+}
+
+###

@@ -35,14 +35,4 @@ public interface CommonConstant {
      */
     Integer DEFAULT_NAVIGATE_PAGES = 8;
 
-    /**
-     * 升序
-     */
-    String SORT_ORDER_ASC = "ascend";
-
-    /**
-     * 降序
-     */
-    String SORT_ORDER_DESC = " descend";
-
 }

@@ -3,6 +3,8 @@ package com.garry.springbootinittemplate.common.interceptor;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.garry.springbootinittemplate.common.common.ErrorCode;
+import com.garry.springbootinittemplate.common.exception.BusinessException;
 import com.garry.springbootinittemplate.common.model.response.UserLoginResponse;
 import com.garry.springbootinittemplate.common.util.HostHolder;
 import com.garry.springbootinittemplate.common.util.JWTUtil;
@@ -35,7 +37,7 @@ public class UserLoginInterceptor implements HandlerInterceptor {
             hostHolder.setUser(userLoginResponse);
         } else {
             log.info("{} 的 token 不存在或已过期", path);
-            return false;
+            throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
         return true;
     }

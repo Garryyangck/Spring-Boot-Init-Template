@@ -29,7 +29,14 @@ public class HostHolder {
         try {
             return localUsers.get().getId();
         } catch (Exception e) {
-            log.error(ErrorCode.NOT_LOGIN_ERROR.getMessage());
+            throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
+        }
+    }
+
+    public String getUserRole() {
+        try {
+            return localUsers.get().getUserRole();
+        } catch (Exception e) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
     }

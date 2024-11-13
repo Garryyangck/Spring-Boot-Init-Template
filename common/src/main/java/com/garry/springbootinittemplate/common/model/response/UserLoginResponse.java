@@ -58,7 +58,7 @@ public class UserLoginResponse {
     private Integer isDelete;
 
     /**
-     * token
+     * JWT token
      */
     private String token;
 }
