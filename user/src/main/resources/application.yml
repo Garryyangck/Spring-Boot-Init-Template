@@ -21,4 +21,4 @@ logging:
           mapper: trace # garry.train.member.mapper下的日志等级设置为 trace，可以打印出 sql
 
 test:
-  nacos: 看见我就说明没有使用 Nacos
+  me: 看见我就说明没有使用 Nacos

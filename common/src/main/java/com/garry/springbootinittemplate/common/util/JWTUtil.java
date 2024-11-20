@@ -1,11 +1,13 @@
 package com.garry.springbootinittemplate.common.util;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.json.JSONObject;
 import cn.hutool.jwt.JWT;
 import cn.hutool.jwt.JWTPayload;
 import com.garry.springbootinittemplate.common.constant.CommonConstant;
+import com.garry.springbootinittemplate.common.model.response.UserLoginResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
@@ -18,10 +20,9 @@ public class JWTUtil {
     /**
      * 生成 JWT
      */
-    public static String createToken(Long id, String mobile) {
-        HashMap<String, Object> payload = new HashMap<>();
-        payload.put("id", id);
-        payload.put("mobile", mobile);
+    public static String createToken(UserLoginResponse response) {
+
+        HashMap<String, Object> payload = new HashMap<>(BeanUtil.beanToMap(response, null));
 
         DateTime now = DateTime.now();
         DateTime expireTime = now.offsetNew(DateField.HOUR, CommonConstant.JWT_EXPIRE_HOUR);
@@ -30,7 +31,7 @@ public class JWTUtil {
         payload.put(JWTPayload.NOT_BEFORE, now); // 生效时间
 
         String token = cn.hutool.jwt.JWTUtil.createToken(payload, key.getBytes());
-        log.info("已为手机号 {} 的用户生成 JWT: {}", mobile, token);
+        log.info("已为用户 {} 生成 JWT: {}", response, token);
         return token;
     }
 

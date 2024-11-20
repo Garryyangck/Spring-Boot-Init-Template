@@ -1,4 +1,4 @@
-package com.garry.springbootinittemplate.batch.controller.admin;
+package com.garry.springbootinittemplate.batch.controller;
 
 import com.garry.springbootinittemplate.batch.model.request.CronRequest;
 import com.garry.springbootinittemplate.batch.model.response.CronResponse;
@@ -6,6 +6,7 @@ import com.garry.springbootinittemplate.common.annotation.AuthCheck;
 import com.garry.springbootinittemplate.common.common.BaseResponse;
 import com.garry.springbootinittemplate.common.common.ErrorCode;
 import com.garry.springbootinittemplate.common.common.ResultUtil;
+import com.garry.springbootinittemplate.common.constant.UserConstant;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
@@ -42,7 +43,7 @@ public class JobController {
     /**
      * 手动立马执行一次任务
      */
-    @AuthCheck(mustRole = "admin")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @RequestMapping(value = "/run", method = RequestMethod.POST)
     public BaseResponse run(@Valid @RequestBody CronRequest request) throws SchedulerException {
         String jobClassName = request.getName();
@@ -62,7 +63,7 @@ public class JobController {
     /**
      * 添加新任务，要传入全类名
      */
-    @AuthCheck(mustRole = "admin")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public BaseResponse add(@Valid @RequestBody CronRequest request) {
         String jobClassName = request.getName();
@@ -110,7 +111,7 @@ public class JobController {
     /**
      * 暂停指定任务
      */
-    @AuthCheck(mustRole = "admin")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @RequestMapping(value = "/pause", method = RequestMethod.POST)
     public BaseResponse pause(@Valid @RequestBody CronRequest request) {
         String jobClassName = request.getName();
@@ -131,7 +132,7 @@ public class JobController {
     /**
      * 恢复指定任务
      */
-    @AuthCheck(mustRole = "admin")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @RequestMapping(value = "/resume", method = RequestMethod.POST)
     public BaseResponse resume(@Valid @RequestBody CronRequest request) {
         String jobClassName = request.getName();
@@ -152,7 +153,7 @@ public class JobController {
     /**
      * 重定义指定任务
      */
-    @AuthCheck(mustRole = "admin")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @RequestMapping(value = "/reschedule", method = RequestMethod.POST)
     public BaseResponse reschedule(@Valid @RequestBody CronRequest request) {
         String jobClassName = request.getName();
@@ -192,7 +193,7 @@ public class JobController {
     /**
      * 删除指定任务
      */
-    @AuthCheck(mustRole = "admin")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public BaseResponse delete(@Valid @RequestBody CronRequest request) {
         String jobClassName = request.getName();
@@ -216,7 +217,7 @@ public class JobController {
     /**
      * 查看所有任务
      */
-    @AuthCheck(mustRole = "admin")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public BaseResponse query() {
         log.info("查看所有定时任务开始");
