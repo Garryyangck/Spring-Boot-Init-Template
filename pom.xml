@@ -14,6 +14,7 @@
     <modules>
         <module>common</module>
         <module>batch</module>
+        <module>user</module>
     </modules>
 
     <!--配置信息-->
@@ -97,7 +98,13 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.5.2</version>
+                <version>3.5.9</version>
+            </dependency>
+            <!--mybatis-plus-generator-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>3.5.9</version>
             </dependency>
             <!--pageHelper，必须要1.4.6+的版本才支持Springboot3.x-->
             <dependency>
@@ -165,16 +172,5 @@
     </dependencyManagement>
 
     <!--build下面的包也不要了，copy到子模块中去-->
-
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
 </project>
