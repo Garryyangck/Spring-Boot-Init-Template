@@ -1,6 +1,6 @@
 spring:
   application:
-    name: member # 项目的名字
+    name: user # 项目的名字
   profiles:
     active: dev # 启动环境，Nacos 会根据不同的环境，生产不同的 dataId：user-dev.yml
   cloud:

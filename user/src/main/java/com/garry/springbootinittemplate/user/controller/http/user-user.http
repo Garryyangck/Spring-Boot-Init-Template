@@ -1,0 +1,19 @@
+POST http://localhost:8081/user/user/register
+Content-Type: application/json
+
+{
+  "userAccount": "GarryYangCK",
+  "userPassword": "123456"
+}
+
+###
+
+POST http://localhost:8081/user/user/login
+Content-Type: application/json
+
+{
+  "userAccount": "",
+  "userPassword": ""
+}
+
+###
